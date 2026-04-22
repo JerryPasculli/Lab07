@@ -43,11 +43,11 @@ class View(ft.UserControl):
 
         self.btn_umidita = ft.ElevatedButton(text="Umidità media",
                                              tooltip="Verifica l'umidità media per città, nel mese selezionato",
-                                             on_click=self._controller.handle_umidita_media)
+                                             on_click= lambda e:self._controller.handle_umidita_media(e, self.dd_mese.value))
 
         self.btn_calcola_sequenza = ft.ElevatedButton(text="Calcola sequenza",
                                              tooltip="Calcola la sequenza ottimale per le analisi",
-                                             on_click=self._controller.handle_sequenza)
+                                             on_click= lambda e :self._controller.handle_sequenza(e, self.dd_mese.value))
         row1 = ft.Row([self.dd_mese, self.btn_umidita, self.btn_calcola_sequenza],
                       alignment=ft.MainAxisAlignment.CENTER)
         self._page.controls.append(row1)
